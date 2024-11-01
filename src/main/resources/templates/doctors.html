@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="base :: head">
+  <!-- Asegúrate de incluir Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Asegúrate de incluir Font Awesome si usas íconos -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body th:replace="base :: body">
+  <div th:fragment="content">
+    <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+      <div class="card-body p-4 p-md-5">
+        <div class="text-center mb-4">
+          <img src="images/img.png" width="60" alt="Imagen de Listado" class="mb-1">
+          <h3>Listado de Médicos</h3>
+        </div>
+        <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#nuevoMedicoModal">
+          <i class="fa-solid fa-user-doctor"></i> Nuevo Medico
+        </button>
+        <!-- Table -->
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">DNI</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">Especialidad</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Email</th>
+              <th scope="col">ID Clínica</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="medico : ${doctors}">
+              <td th:text="${medico.idMedico}"></td>
+              <td th:text="${medico.dni}"></td>
+              <td th:text="${medico.nombre}"></td>
+              <td th:text="${medico.apellidos}"></td>
+              <td th:text="${medico.especialidad}"></td>
+              <td th:text="${medico.telefono}"></td>
+              <td th:text="${medico.email}"></td>
+              <td th:text="${medico.idClinica}"></td>
+              <td>
+                <button type="button" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen"></i></button>
+                <button type="button" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- End Table -->
+        <!-- Pagination -->
+        <nav aria-label="...">
+          <ul class="pagination">
+            <li class="page-item disabled">
+              <span class="page-link">Previous</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active">
+              <span class="page-link">
+                2
+                <span class="sr-only">(current)</span>
+              </span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- End Pagination -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="nuevoMedicoModal" tabindex="-1" aria-labelledby="nuevoMedicoModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="nuevoMedicoModalLabel">Nuevo Médico</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form th:action="@{/doctors/guardar}" method="post">
+            <div class="mb-3">
+              <label for="dni" class="form-label">DNI</label>
+              <input type="text" class="form-control" id="dni" name="dni" required>
+            </div>
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" maxlength="100" required>
+            </div>
+            <div class="mb-3">
+              <label for="apellidos" class="form-label">Apellidos</label>
+              <input type="text" class="form-control" id="apellidos" name="apellidos" maxlength="100" required>
+            </div>
+            <div class="mb-3">
+              <label for="especialidad" class="form-label">Especialidad</label>
+              <input type="text" class="form-control" id="especialidad" name="especialidad" maxlength="100">
+            </div>
+            <div class="mb-3">
+              <label for="telefono" class="form-label">Teléfono</label>
+              <input type="text" class="form-control" id="telefono" name="telefono" maxlength="20">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" maxlength="100">
+            </div>
+            <div class="mb-3">
+              <label for="id_clinica" class="form-label">ID de Clínica</label>
+              <input type="text" class="form-control" id="id_clinica" name="id_clinica" required>
+            </div>
+            <div class="mt-4 pt-2 text-center">
+              <input data-mdb-ripple-init class="btn btn-primary btn-lg btn-rounded" type="submit" value="Registrar" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+
+  <!-- Asegúrate de incluir jQuery y Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

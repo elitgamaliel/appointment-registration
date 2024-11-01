@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Paciente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="container py-5 h-100">
+          <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+              <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                <div class="card-body p-4 p-md-5">
+                  <div class="text-center mb-4">
+                      <img src="images/img.png" width="60" alt="Imagen de Registro" class="mb-1">
+                      <h3>Registro Paciente</h3>
+                  </div>
+                  <form>
+      
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <select class="form-select" id="tipo_documento" name="tipo_documento" required>
+                            <option value="DNI">DNI</option>
+                            <option value="Pasaporte">Pasaporte</option>
+                            <option value="Carnet de Extranjería">Carnet de Extranjería</option>
+                        </select>
+                        <label for="tipo_documento" class="form-label">Tipo de Documento</label>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <div data-mdb-input-init class="form-outline">
+                          <input type="text" class="form-control" id="numero_documento" name="numero_documento" maxlength="20" required>
+                          <label for="numero_documento" class="form-label">Número de Documento</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <input type="text" class="form-control" id="nombre" name="nombre" maxlength="60" required>
+                        <label for="nombre" class="form-label">Nombre</label>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <input type="text" class="form-control" id="apellidos" name="apellidos" maxlength="70" required>
+                        <label for="apellidos" class="form-label">Apellidos</label>                  
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
+                        <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <input type="text" class="form-control" id="telefono" name="telefono" maxlength="20" required>
+                        <label for="telefono" class="form-label">Teléfono</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <input type="email" class="form-control" id="email" name="email" maxlength="100">
+                        <label for="email" class="form-label">Email</label>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <input type="text" class="form-control" id="direccion" name="direccion" maxlength="200" required>
+                        <label for="direccion" class="form-label">Dirección</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <select class="form-select" id="genero" name="genero">
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                        <label for="genero" class="form-label">Género</label>
+                      </div>
+                    </div>
+
+                    <div class="mt-4 pt-2 text-center">
+                      <input data-mdb-ripple-init class="btn btn-primary btn-lg btn-rounded" type="submit" value="Registrarse" />
+                    </div>
+                    <div class="text-center mt-3">
+                        <a href="/login" class="text-decoration-none">Iniciar Sesión</a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

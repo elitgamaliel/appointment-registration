@@ -1,0 +1,28 @@
+<nav class="col-2 bg-secondary text-white p-2 d-flex flex-column flex-grow-1" th:fragment="sidebar">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link text-white fw-bolder" th:href="@{/home}"><i class="fa-solid fa-house"></i> Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white fw-bolder" th:href="@{/appointments}"><i class="fa-solid fa-calendar-check"></i> Citas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white fw-bolder" th:href="@{/patients}"><i class="fa-solid fa-person"></i> Pacientes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white fw-bolder" th:href="@{/doctors}"><i class="fa-solid fa-user-doctor"></i> Médicos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white fw-bolder" th:href="@{/specialties}"><i class="fa-solid fa-house-chimney-medical"></i> Especialidades</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white fw-bolder" th:href="@{/schedules}"><i class="fa-solid fa-calendar-days"></i> Horarios</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white fw-bolder" th:href="@{/users}"><i class="fa-solid fa-users"></i> Usuarios</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white fw-bolder" th:href="@{/settings}"><i class="fa-solid fa-gear"></i> Configuración</a>
+        </li>
+    </ul>
+</nav>
